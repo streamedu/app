@@ -1,0 +1,32 @@
+  <!-- Modal -->
+  <div class="modal fade" id="modalFAQ" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center"> 
+              {{ !this.adminFaq.selectedFaq.id ? 'Nueva Pregunta Frecuente' : 'Modificando Pregunta Freceunte'}}
+              </h5>
+            <button type="button" (click)="onCloseFaq(formFaq)" #btnClose class="close" data-dismiss="modal" aria-label="Close" >
+              <span aria-hidden="true" >&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form #formFaq="ngForm" (ngSubmit)="onSaveFaq(formFaq)">
+              <input type="hidden" name="id" [(ngModel)]="this.adminFaq.selectedFaq.id">
+              <div class="form-group">
+                <label for="pregunta" class="col-form-label">Pregunta Frecuente</label>
+                <textarea type="text" class="form-control" name="pregunta" rows="2"[(ngModel)]="this.adminFaq.selectedFaq.pregunta"></textarea>
+              </div>
+              <div class="form-group">
+                  <label for="respuesta" class="col-form-label">Respuesta para la Pregunta Frecuente</label>
+                  <textarea type="text" class="form-control" name="respuesta" rows="4" [(ngModel)]="this.adminFaq.selectedFaq.respuesta"></textarea>
+                </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" (click)="onCloseFaq(formFaq)" #btnClose data-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-primary" >Guardar Cambios</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,54 @@
+<section id="div-with-bg" class="container-fluid">
+  <div class="row mt-5">
+    <div class="offset-lg-4 col-lg-4 col-sm-6 col-12 main-section text-center card">
+      <div class="row pt-3">
+        <div class="col-lg-12 col-sm-12 col-12 text-center">
+            <img src="../../../../assets/logo_tfg.png"
+               alt="StreamEDU">
+               <hr>
+               <h3> {{user.name}} </h3>
+        </div>
+      </div>
+
+      <div class="row user-details">
+        <div class="col-12">
+          <img [src]="user.photoUrl" 
+               class="rounded-circle img-thumbnail" 
+               alt="profile">
+          <form>
+          <div class="form-group">
+              <div class="image-upload">
+                  <label for="file-input">
+                    <img src="../../../../assets/upload.png" style="width: 40px; height: 40px;"/>
+                  </label>
+                  <input id="file-input" type="file" accept=".png, .jpg" (change)="uploadImage($event)">
+                </div>  
+                <div class="progress">
+                  <div class="progress-bar progress-bar-stripped bg-success" 
+                       role="progressbar" 
+                       [style.width]="(uploadPercent | async) +'%'">
+                  </div>
+                  <br>
+                </div>      
+          </div>
+          <h5> {{user.name}} </h5>
+          <p>{{user.email}}</p>
+          <input #imageUser type="hidden" [value]="urlImage | async">
+          <button *ngIf="urlImage | async; else  btnDisable"
+                  type="submit" 
+                  class="btn btn-lg  btn-block btn-primary"
+                  (click)="updateProfile()" routerLink="/">Guardar</button>
+          <ng-template #btnDisable>
+              <button type="submit" 
+                      disabled=true 
+                      class="btn btn-lg  btn-block btn-secondary">
+                      Guardar
+              </button>
+          </ng-template>
+          <br>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+<br>
+<div class="container-fluid" id="div-with-bg">
+<div class="row pb-3">
+  <div class="col-md-10"></div>
+  <div class="col-md-2">
+      <button class="btn btn-primary" routerLink="/admin/list-videos">Volver</button>
+  </div>
+</div>
+
+
+  <div class="mx-auto" style="width:90%;">
+    <!-- <iframe src="https://www.youtube.com/embed/" frameborder="0"></iframe>  -->
+    <iframe width="100%" height="350" [src]=" videoId | videoYoutube " frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <div class="container">
+    <p> El video seleccionado es : {{ videoId | json }} </p>
+
+  </div>
+  <div class="chat-window mx-auto" style="width:90%; background: white">
+    <!-- <button type="button" class="btn btn-primary">Iniciar Chat</button>  -->
+    <h1>Chat</h1>
+    <hr>
+    <div class="app-mensajes" id="app-mensajes">
+      <div *ngFor="let chat of appService.chats">
+
+        <div *ngIf="chat.videoId == videoId" [ngClass]="{'text-right': appService.usuario.uid == chat.uid }">
+          <span *ngIf="chat.videoId == videoId" class="badge badge-primary"
+            [ngClass]="{'badge-primary': appService.usuario.uid == chat.uid,
+                                          'badge-success': appService.usuario.uid != chat.uid  }">{{chat.nombre}}</span>
+          <p class="h6">
+            {{ chat.mensaje }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <input type="text" name="mensaje" [(ngModel)]="mensaje" (keyup.enter)="enviar_mensaje()" class="form-control"
+      placeholder="Enviar mensaje">
+  </div>
+  <hr>
+</div>

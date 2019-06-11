@@ -1,0 +1,50 @@
+<div class="container-fluid" id="div-with-bg">
+  <div class="raw mx-auto" style="width: 300px;">
+    <div class="col">
+      <div class="card">
+        <img src="../../../../assets/logo_tfg.png" alt="StreamEDU" style="width: 50%; " class="mx-auto">
+        <hr>
+        <h6 class="text-center"> Formulario de registro</h6>
+
+        <form #formRegister="ngForm" class="m-3" (ngSubmit)="addUser()">
+          <div class="form-group">
+            <input type="text" name="name" class="form-control" placeholder="Nombre Completo" [(ngModel)]="name" required
+              minlength="3" maxlength="50">
+          </div>
+
+          <div class="form-group">
+            <input [(ngModel)]="email" type="email" name="email" class="form-control" placeholder="Email" required
+              minlength="8">
+          </div>
+
+          <div class="form-group">
+            <input [(ngModel)]="password" type="password" name="password" class="form-control" placeholder="Contraseña"
+              required minlength="5" maxlength="10">
+          </div>
+
+          <div class="form-group">
+            <input [(ngModel)]="password2" type="password" name="password2" class="form-control" placeholder="Repite Contraseña"
+              required minlength="5" maxlength="10">
+          </div>
+
+          <button type="submit" class="btn btn-md btn-primary btn-block">
+            Quiero Registrarme
+          </button>
+
+          <button routerLink="/user/login" class="btn btn-md btn-info btn-block">
+           Tienes una cuenta?
+          </button>
+
+        </form>
+        <button class="btn btn-block btn-social " (click)="loginGoogle()">
+          <img src="../../../../assets/google/btn_google_signin_dark_pressed_web@2x.png"
+            class="btn btn-block btn-social mx-auto" alt="Google">
+        </button>
+      </div>
+    </div>
+
+  </div>
+  <br>
+  <br>
+  <br>
+</div>

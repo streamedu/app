@@ -1,0 +1,10 @@
+#div-with-bg {
+    background:  url('../../../../assets/images/bg-login-register.jpg');
+    background-size: cover;
+    position: relative;
+    min-width: 100% ;
+    min-height: 100% ;
+    padding-top: 80px;
+    padding-bottom: 150px;
+
+}

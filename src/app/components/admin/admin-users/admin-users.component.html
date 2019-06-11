@@ -1,0 +1,43 @@
+
+<div id="div-with-bg">
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <table class="table table-hover">
+              <thead>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Email</th>
+                <!-- <th scope="col">Identificador</th> -->
+                <th scope="col">Editor</th>
+                <th scope="col">Admin</th>
+                <!-- <th scope="col">Foto</th> -->
+                <th scope="col">&nbsp;</th>
+                <th scope="col">&nbsp;</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users; index as i">
+                  <th scope="row">{{i +1}}</th>
+                  <td>{{user.name}}</td>
+                  <td>{{user.email}}</td>
+                  <!-- <td >{{user.id}}</td> -->
+                  <td>
+                    <ng-container *ngIf="user.roles.editor == true; else noEditor">SI</ng-container>
+                    <ng-template #noEditor>NO</ng-template>
+                  </td>
+                  <td>
+                    <ng-container *ngIf="user.roles.admin == true; else noAdmin">SI</ng-container>
+                    <ng-template #noAdmin>NO</ng-template>
+                  </td>
+                  <!-- <td>foto</td> -->
+                  <td><button type="button"  data-toggle="modal" class="btn btn-block btn-primary"  data-target="#modalUser" (click)="onPreUpdateUser(user)">Editar</button>
+                </td>
+                  <td><button class="btn btn-block btn-danger" (click)="onDeleteUser(user.id)">Eliminar</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <app-modal></app-modal>
+</div>
