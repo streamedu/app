@@ -27,7 +27,7 @@
     "core-js": "^2.5.4",
     "firebase": "^5.10.1",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.4.0",
+    "jquery": "^3.5.0",
     "ngx-spinner": "^7.1.4",
     "popper.js": "^1.15.0",
     "rxjs": "~6.3.3",
